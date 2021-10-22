@@ -47,8 +47,7 @@ To get a local copy up and running follow these simple steps.
 ### Prerequisites
 
 - [Node.js and NPM](https://nodejs.org/en/download/package-manager/)
-- [Yeoman YO OFFICE](https://github.com/OfficeDev/generator-office)
-- Outlook desktop application
+- Outlook desktop or web application
 
 
 ### Installation
