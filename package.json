@@ -31,8 +31,7 @@
     "es6-promise": "^4.2.8",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
-    "regenerator-runtime": "^0.13.7",
-    "styled-components": "^5.3.3"
+    "regenerator-runtime": "^0.13.7"
   },
   "devDependencies": {
     "@babel/core": "^7.13.10",
@@ -43,7 +42,6 @@
     "@types/react": "^17.0.30",
     "@types/react-dom": "^17.0.10",
     "@types/react-hot-loader": "^4.1.0",
-    "@types/styled-components": "^5.1.15",
     "@types/webpack": "^4.4.34",
     "@types/webpack-dev-server": "^4.1.0",
     "acorn": "^8.5.0",

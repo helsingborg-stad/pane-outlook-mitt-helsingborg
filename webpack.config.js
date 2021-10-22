@@ -6,7 +6,7 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const webpack = require("webpack");
 
 const urlDev = "https://localhost:3000/";
-const urlProd = "https://www.contoso.com/"; // CHANGE THIS TO YOUR PRODUCTION DEPLOYMENT LOCATION
+const urlProd = "https://outlook-pane-bucket.s3.eu-north-1.amazonaws.com/"; // CHANGE THIS TO YOUR PRODUCTION DEPLOYMENT LOCATION
 
 async function getHttpsOptions() {
   const httpsOptions = await devCerts.getHttpsServerOptions();
@@ -21,7 +21,7 @@ module.exports = async (env, options) => {
     entry: {
       polyfill: ["core-js/stable", "regenerator-runtime/runtime"],
       vendor: ["react", "react-dom", "core-js", "@fluentui/react"],
-      taskpane: ["react-hot-loader/patch", "./index.tsx"],
+      // taskpane: ["react-hot-loader/patch", "./index.tsx"],
       commands: "./src/commands/commands.ts",
     },
     output: {
@@ -68,11 +68,14 @@ module.exports = async (env, options) => {
           },
         ],
       }),
-      new HtmlWebpackPlugin({
-        filename: "taskpane.html",
-        template: "./src/taskpane.html",
-        chunks: ["taskpane", "vendor", "polyfills"],
-      }),
+      /*
+       * Uncomment for Taskpane
+       */
+      // new HtmlWebpackPlugin({
+      //   filename: "taskpane.html",
+      //   template: "./src/taskpane.html",
+      //   chunks: ["taskpane", "vendor", "polyfills"],
+      // }),
       new HtmlWebpackPlugin({
         filename: "commands.html",
         template: "./src/commands/commands.html",

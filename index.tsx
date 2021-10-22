@@ -6,23 +6,18 @@ import { ThemeProvider } from "@fluentui/react";
 import React from "react";
 import ReactDOM from "react-dom";
 
-import GlobalStyle from "./globalStyle";
-
 initializeIcons();
 
 let isOfficeInitialized = false;
 
-const title = "Contoso Task Pane Add-in";
+const title = "Mitt Helsingborg Task Pane Add-in";
 
 const render = (Component) => {
   ReactDOM.render(
     <AppContainer>
-      <>
-        <ThemeProvider>
-          <GlobalStyle />
-          <Component title={title} isOfficeInitialized={isOfficeInitialized} />
-        </ThemeProvider>
-      </>
+      <ThemeProvider>
+        <Component title={title} isOfficeInitialized={isOfficeInitialized} />
+      </ThemeProvider>
     </AppContainer>,
     document.getElementById("container")
   );
