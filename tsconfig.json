@@ -1,31 +1,25 @@
 {
   "compilerOptions": {
-    "target": "es5",
-    "module": "commonjs",
-    "jsx": "react",
-    "esModuleInterop": true,
-    "moduleResolution": "node",
-    "sourceMap": true,
-    "emitDecoratorMetadata": true,
+    "allowJs": true,
+    "baseUrl": ".",
     "experimentalDecorators": true,
-    "removeComments": false,
-    "outDir": "dist",
-    "allowUnusedLabels": false,
-    "noImplicitReturns": true,
-    "noUnusedParameters": true,
-    "noUnusedLocals": true,
+    "jsx": "react",
+    "noEmitOnError": true,
+    "outDir": "lib",
+    "sourceMap": true,
+    "target": "es5",
     "lib": [
-      "es7",
+      "es2015",
       "dom"
-    ],
-    "pretty": true,
-    "typeRoots": [
-      "node_modules/@types"
     ]
   },
   "exclude": [
-    "node_modules"
+    "node_modules",
+    "dist",
+    "lib",
+    "lib-amd",
   ],
-  "compileOnSave": false,
-  "buildOnSave": false
+  "ts-node": { 
+    "files": true 
+  }
 }
