@@ -48,7 +48,7 @@ export async function getGraphData(): Promise<void> {
 }
 
 export async function getAccessToken(): Promise<string> {
-  return OfficeRuntime.auth.getAccessToken({ allowSignInPrompt: true });
+  return OfficeRuntime.auth.getAccessToken({ allowSignInPrompt: true, allowConsentPrompt: true });
 }
 
 function handleAADErrors(exchangeResponse: any): void {
