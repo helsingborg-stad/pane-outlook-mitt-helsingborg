@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<OfficeApp xmlns="http://schemas.microsoft.com/office/appforoffice/1.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bt="http://schemas.microsoft.com/office/officeappbasictypes/1.0" xmlns:mailappor="http://schemas.microsoft.com/office/mailappversionoverrides/1.0" xsi:type="MailApp">
-  <Id>333d383a-33df-4256-9332-679eda2ef99c</Id>
-  <Version>1.0.1.8</Version>
+<OfficeApp xmlns="http://schemas.microsoft.com/office/appforoffice/1.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bt="http://schemas.microsoft.com/office/officeappbasictypes/1.0" xsi:type="MailApp">
+  <Id>f8a38786-68d3-491a-b6d7-dd31a242fcb0</Id>
+  <Version>1.0.0.1</Version>
   <ProviderName>Mitt Helsingborg</ProviderName>
   <DefaultLocale>sv-SE</DefaultLocale>
   <DisplayName DefaultValue="Mitt Helsingborg"/>
   <Description DefaultValue="Office add-in for Mitt Helsingborg application"/>
   <IconUrl DefaultValue="https://localhost:3000/assets/icon-64.png"/>
   <HighResolutionIconUrl DefaultValue="https://localhost:3000/assets/icon-128.png"/>
+  <SupportUrl DefaultValue="https://www.contoso.com/help"/>
   <AppDomains>
     <AppDomain>https://www.contoso.com</AppDomain>
   </AppDomains>
@@ -16,7 +17,7 @@
   </Hosts>
   <Requirements>
     <Sets>
-      <Set Name="Mailbox" MinVersion="1.1"/>
+      <Set Name="MailBox" MinVersion="1.1"/>
     </Sets>
   </Requirements>
   <FormSettings>
@@ -37,76 +38,85 @@
     <Rule xsi:type="ItemIs" ItemType="Appointment" FormType="Read"/>
     <Rule xsi:type="ItemIs" ItemType="Appointment" FormType="Edit"/>
   </Rule>
-  <DisableEntityHighlighting>false</DisableEntityHighlighting>
   <VersionOverrides xmlns="http://schemas.microsoft.com/office/mailappversionoverrides" xsi:type="VersionOverridesV1_0">
-    <Requirements>
-      <bt:Sets DefaultMinVersion="1.3">
-        <bt:Set Name="Mailbox"/>
-      </bt:Sets>
-    </Requirements>
-    <Hosts>
-      <Host xsi:type="MailHost">
-        <DesktopFormFactor>
-          <FunctionFile resid="Commands.Url"/>
-          <ExtensionPoint xsi:type="AppointmentOrganizerCommandSurface">
-            <OfficeTab id="TabDefault">
-              <Group id="msgReadGroup">
-                <Label resid="GroupLabel"/>
-                <Control xsi:type="Button" id="SetAvailableButton">
-                  <Label resid="SetAvailableButton.Label"/>
-                  <Supertip>
-                    <Title resid="SetAvailableButton.Label"/>
-                    <Description resid="SetAvailableButton.Tooltip"/>
-                  </Supertip>
-                  <Icon>
-                    <bt:Image size="16" resid="Icon.16x16"/>
-                    <bt:Image size="32" resid="Icon.32x32"/>
-                    <bt:Image size="80" resid="Icon.80x80"/>
-                  </Icon>
-                  <Action xsi:type="ExecuteFunction">
-                    <FunctionName>setAvailableAction</FunctionName>
-                  </Action>
-                </Control>
-                <Control xsi:type="Button" id="BookMeetingButton">
-                  <Label resid="BookMeetingButton.Label"/>
-                  <Supertip>
-                    <Title resid="BookMeetingButton.Label"/>
-                    <Description resid="BookMeetingButton.Tooltip"/>
-                  </Supertip>
-                  <Icon>
-                    <bt:Image size="16" resid="Icon.16x16"/>
-                    <bt:Image size="32" resid="Icon.32x32"/>
-                    <bt:Image size="80" resid="Icon.80x80"/>
-                  </Icon>
-                  <Action xsi:type="ExecuteFunction">
-                    <FunctionName>bookMeetingAction</FunctionName>
-                  </Action>
-                </Control>
-              </Group>
-            </OfficeTab>
-          </ExtensionPoint>
-        </DesktopFormFactor>
-      </Host>
-    </Hosts>
-    <Resources>
-      <bt:Images>
-        <bt:Image id="Icon.16x16" DefaultValue="https://localhost:3000/assets/icon-16.png"/>
-        <bt:Image id="Icon.32x32" DefaultValue="https://localhost:3000/assets/icon-32.png"/>
-        <bt:Image id="Icon.80x80" DefaultValue="https://localhost:3000/assets/icon-80.png"/>
-      </bt:Images>
-      <bt:Urls>
-        <bt:Url id="Commands.Url" DefaultValue="https://localhost:3000/commands.html"/>
-        <!-- <bt:Url id="Taskpane.Url" DefaultValue="https://localhost:3000/taskpane.html"/> UN COMMENT FOR TASKPANE  -->
-      </bt:Urls>
-      <bt:ShortStrings>
-        <bt:String id="GroupLabel" DefaultValue="Mitt Helsingborg Add-in"/>
-        <bt:String id="SetAvailableButton.Label" DefaultValue="Ange bokningsbar tid"/>
-        <bt:String id="BookMeetingButton.Label" DefaultValue="Boka möte"/>
-      </bt:ShortStrings>
-      <bt:LongStrings>
-        <bt:String id="SetAvailableButton.Tooltip" DefaultValue="Ange tillgängliga tider som användare att boka."/>
-        <bt:String id="BookMeetingButton.Tooltip" DefaultValue="Boka ett möte med en invånare."/>
-      </bt:LongStrings>
-    </Resources>
+    <VersionOverrides xmlns="http://schemas.microsoft.com/office/mailappversionoverrides/1.1" xsi:type="VersionOverridesV1_1">
+      <Hosts>
+        <Host xsi:type="MailHost">
+          <DesktopFormFactor>
+            <FunctionFile resid="Commands.Url"/>
+            <ExtensionPoint xsi:type="AppointmentOrganizerCommandSurface">
+              <OfficeTab id="TabHome">
+                <Group id="CommandsGroup">
+                  <Label resid="CommandsGroup.Label"/>
+                  <Control xsi:type="Button" id="SetAvailableButton">
+                    <Label resid="SetAvailableButton.Label"/>
+                    <Supertip>
+                      <Title resid="SetAvailableButton.Label"/>
+                      <Description resid="SetAvailableButton.Tooltip"/>
+                    </Supertip>
+                    <Icon>
+                      <bt:Image size="16" resid="Icon.16x16"/>
+                      <bt:Image size="32" resid="Icon.32x32"/>
+                      <bt:Image size="80" resid="Icon.80x80"/>
+                    </Icon>                     
+                    <Action xsi:type="ExecuteFunction">
+                      <FunctionName>setAvailableAction</FunctionName>
+                    </Action>
+                  </Control>
+                  <Control xsi:type="Button" id="BookMeetingButton">
+                    <Label resid="BookMeetingButton.Label"/>
+                    <Supertip>
+                      <Title resid="BookMeetingButton.Label"/>
+                      <Description resid="BookMeetingButton.Tooltip"/>
+                    </Supertip>
+                    <Icon>
+                      <bt:Image size="16" resid="Icon.16x16"/>
+                      <bt:Image size="32" resid="Icon.32x32"/>
+                      <bt:Image size="80" resid="Icon.80x80"/>
+                    </Icon>                  
+                    <Action xsi:type="ExecuteFunction">
+                      <FunctionName>bookMeetingAction</FunctionName>
+                    </Action>
+                  </Control>
+                </Group>
+              </OfficeTab>
+            </ExtensionPoint>
+          </DesktopFormFactor>
+        </Host>
+      </Hosts>
+      <Resources>
+        <bt:Images>
+          <bt:Image id="Icon.16x16" DefaultValue="https://localhost:3000/assets/icon-16.png"/>
+          <bt:Image id="Icon.32x32" DefaultValue="https://localhost:3000/assets/icon-32.png"/>
+          <bt:Image id="Icon.80x80" DefaultValue="https://localhost:3000/assets/icon-80.png"/>
+        </bt:Images>
+        <bt:Urls>
+          <bt:Url id="Commands.Url" DefaultValue="https://localhost:3000/commands.html"/>
+          <bt:Url id="Taskpane.Url" DefaultValue="https://localhost:3000/taskpane.html"/>
+        </bt:Urls>
+        <bt:ShortStrings>
+          <bt:String id="GroupLabel" DefaultValue="Mitt Helsingborg Add-in"/>
+          <bt:String id="SetAvailableButton.Label" DefaultValue="Ange bokningsbar tid"/>
+          <bt:String id="BookMeetingButton.Label" DefaultValue="Boka möte"/>
+          <bt:String id="GetStarted.Title" DefaultValue="Get started with your sample add-in!"/>
+          <bt:String id="CommandsGroup.Label" DefaultValue="Commands Group"/>
+          <bt:String id="TaskpaneButton.Label" DefaultValue="Show Taskpane"/>
+        </bt:ShortStrings>
+        <bt:LongStrings>
+          <bt:String id="SetAvailableButton.Tooltip" DefaultValue="Ange tillgängliga tider som användare att boka."/>
+          <bt:String id="BookMeetingButton.Tooltip" DefaultValue="Boka ett möte med en invånare."/>
+          <bt:String id="GetStarted.Description" DefaultValue="Your sample add-in loaded succesfully. Go to the HOME tab and click the 'Show Taskpane' button to get started."/>
+          <bt:String id="TaskpaneButton.Tooltip" DefaultValue="Click to Show a Taskpane"/>
+        </bt:LongStrings>
+      </Resources>
+      <WebApplicationInfo>
+        <Id>d4c69634-f64f-4802-ad04-46f0b0a62c85</Id>
+        <Resource>api://localhost:3000/d4c69634-f64f-4802-ad04-46f0b0a62c85</Resource>
+        <Scopes>
+          <Scope>User.Read</Scope>
+          <Scope>profile</Scope>
+        </Scopes>
+      </WebApplicationInfo>
+    </VersionOverrides>
   </VersionOverrides>
 </OfficeApp>

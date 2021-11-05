@@ -18,13 +18,13 @@
 </p>
 
 ## Table of Contents
-- [About Mitt Helsingborg outlook pane](#about-mitt-helsingborg)
+- [Table of Contents](#table-of-contents)
+- [About Mitt Helsingborg](#about-mitt-helsingborg)
   - [Built With](#built-with)
 - [Getting Started](#getting-started)
   - [Prerequisites](#prerequisites)
   - [Installation](#installation)
 - [Deploy](#deploy)
-  - [Android](#android)
 - [Roadmap](#roadmap)
 - [Contributing](#contributing)
 - [License](#license)
@@ -60,9 +60,9 @@ git clone git@github.com:helsingborg-stad/pane-outlook-mitt-helsingborg.git
 ```sh
 npm install
 ```
-3. Run application dev server
+3. Run the application
 ```sh
-npm run dev-server
+npm start
 ```
 4. [Sideload the pane in outlook manually](https://docs.microsoft.com/en-us/office/dev/add-ins/outlook/sideload-outlook-add-ins-for-testing#sideload-manually)
 
