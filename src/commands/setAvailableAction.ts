@@ -1,34 +1,27 @@
-// import dayjs from "dayjs";
+/* global Office */
 
-/* global Office, console */
+const BOOKING = {
+  SUBJECT: "MH bokningsbar tid",
+};
 
-// import getItemDatePromise from "../helpers/getItemDatePromise";
+const setAvailableAction = (event: Office.AddinCommands.Event) => {
+  Office.context.mailbox.item.subject.setAsync(BOOKING.SUBJECT);
 
-const setAvailableAction = async (event: Office.AddinCommands.Event) => {
-  try {
-    Office.context.mailbox.item.subject.setAsync("MH bokningsbar tid");
+  const htmlContent = `
+    <div style={{ display: 'flex', flexDirection: 'column'}}>
+      <h2>Mitt Helsingborg</h2>
+      <p>Valfria inställningar för användare:</p>
+      <ol>
+        <li>Visa mötesbokningen som "Free"</li>
+        <li>Stäng av notifieringar</li>
+      </ol>
+      <p>Du kan nu spara den här mötesbokningen!</p>
+    </div>
+  `;
 
-    // let startDate = await getItemDatePromise("start");
-    // const formattedStartDate = dayjs(startDate).format();
-
-    // const endDate = await getItemDatePromise("end");
-    // const formattedSEndDate = dayjs(endDate).format();
-
-    // const message: Office.NotificationMessageDetails = {
-    //   type: Office.MailboxEnums.ItemNotificationMessageType.InformationalMessage,
-    //   message: `${formattedStartDate} - ${formattedSEndDate}`,
-    //   icon: "Icon.80x80",
-    //   persistent: true,
-    // };
-
-    Office.context.mailbox.item.close();
-
-    // Show a notification message
-    // Office.context.mailbox.item.notificationMessages.replaceAsync("action", message);
-  } catch (error) {
-    console.error("Error creating availability slot: ", error);
-    Office.context.mailbox.item.subject.setAsync(error);
-  }
+  Office.context.mailbox.item.body.setAsync(htmlContent, {
+    coercionType: Office.CoercionType.Html,
+  });
 
   event.completed();
 };

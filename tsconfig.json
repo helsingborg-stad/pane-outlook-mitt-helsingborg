@@ -3,6 +3,7 @@
     "allowJs": true,
     "baseUrl": ".",
     "experimentalDecorators": true,
+    "esModuleInterop": true,
     "jsx": "react",
     "noEmitOnError": true,
     "outDir": "lib",
@@ -19,7 +20,7 @@
     "lib",
     "lib-amd",
   ],
-  "ts-node": { 
-    "files": true 
+  "ts-node": {
+    "files": true
   }
 }
