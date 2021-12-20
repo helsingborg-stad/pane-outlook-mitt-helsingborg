@@ -60,11 +60,15 @@ git clone git@github.com:helsingborg-stad/pane-outlook-mitt-helsingborg.git
 ```sh
 npm install
 ```
-3. Run the application
+3. Make a copy of `helpers/constants.ts.EXAMPLE` and rename it to `helpers/constants.ts`.
+
+4. Update the backend base URL in the constants file and in `manifest.xml`'s `<AppDomains/>` tag.
+
+5. Run the application
 ```sh
 npm start
 ```
-4. [Sideload the pane in outlook manually](https://docs.microsoft.com/en-us/office/dev/add-ins/outlook/sideload-outlook-add-ins-for-testing#sideload-manually)
+6. [Sideload the pane in outlook manually](https://docs.microsoft.com/en-us/office/dev/add-ins/outlook/sideload-outlook-add-ins-for-testing#sideload-manually)
 
 
 

@@ -1,28 +1,54 @@
+import { BACKEND_BASE_URL } from "./../helpers/constants";
 /*
  * Copyright (c) Microsoft Corporation. All rights reserved. Licensed under the MIT license.
  * See LICENSE in the project root for license information.
  */
 
-/* global $, document, Office */
+import axios from "axios";
+import { getAccessToken } from "./../helpers/ssoauthhelper";
 
-import { getGraphData } from "./../helpers/ssoauthhelper";
+/* global $, document, Office */
 
 Office.onReady((info) => {
   if (info.host === Office.HostType.Outlook) {
     $(document).ready(function () {
-      $("#getGraphDataButton").click(getGraphData);
+      $("#submitButton").click(() => queryStuff($("#query").val().toString().trim()));
     });
   }
 });
+
+function queryStuff(query): void {
+  getAccessToken().then((token) => {
+    axios
+      .post(
+        BACKEND_BASE_URL + "/users/fetchReferenceCode",
+        { query },
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      )
+      .then((res) => {
+        Office.context.mailbox.item.subject.getAsync((titleResult) => {
+          Office.context.mailbox.item.subject.setAsync(`${titleResult.value} ##${res.data.data.referenceCode}`, () => {
+            $("#errorText").text("");
+            $("#successText").text("Referenskoden för invånaren har hämtats.");
+          });
+        });
+      })
+      .catch(() => {
+        $("#errorText").text("Den angivna personnummret/e-mailadressen finns inte i systemet.");
+        $("#successText").text("");
+      });
+  });
+}
 
 export function writeDataToOfficeDocument(result: Object): void {
   let data: string[] = [];
   let userProfileInfo: string[] = [];
   userProfileInfo.push(result["displayName"]);
-  // userProfileInfo.push(result["jobTitle"]);
   userProfileInfo.push(result["mail"]);
-  // userProfileInfo.push(result["mobilePhone"]);
-  // userProfileInfo.push(result["officeLocation"]);
 
   for (let i = 0; i < userProfileInfo.length; i++) {
     if (userProfileInfo[i] !== null) {

@@ -91,3 +91,15 @@
 b {
     font-weight: bold;
 }
+
+.error-text {
+  color: #a80000;
+}
+
+.success-text {
+  color: #107c10;
+}
+
+.text-field {
+  width: 80%;
+}
