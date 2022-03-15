@@ -16,7 +16,7 @@ jobs:
       - name: Install and build
         run: npm install && npm run build
       - name: Deploy
-        uses: JamesIves/github-pages.deploy-action@4.1.1
+        uses: JamesIves/github-pages-deploy-action@v4.2.5
         with:
           branch: dist
           folder: dist
