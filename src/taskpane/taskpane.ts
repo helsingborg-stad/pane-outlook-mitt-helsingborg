@@ -1,4 +1,3 @@
-import { BACKEND_BASE_URL } from "./../helpers/constants";
 /*
  * Copyright (c) Microsoft Corporation. All rights reserved. Licensed under the MIT license.
  * See LICENSE in the project root for license information.
@@ -6,6 +5,8 @@ import { BACKEND_BASE_URL } from "./../helpers/constants";
 
 import axios from "axios";
 import { getAccessToken } from "./../helpers/ssoauthhelper";
+
+declare const BASE_URL: string;
 
 /* global $, document, Office */
 
@@ -21,7 +22,7 @@ function queryStuff(query): void {
   getAccessToken().then((token) => {
     axios
       .post(
-        BACKEND_BASE_URL + "/users/fetchReferenceCode",
+        BASE_URL + "/users/fetchReferenceCode",
         { query },
         {
           headers: {
