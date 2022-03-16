@@ -1,4 +1,5 @@
 <!-- SHIELDS -->
+
 [![Contributors][contributors-shield]][contributors-url]
 [![Forks][forks-shield]][forks-url]
 [![Stargazers][stars-shield]][stars-url]
@@ -18,6 +19,7 @@
 </p>
 
 ## Table of Contents
+
 - [Table of Contents](#table-of-contents)
 - [About Mitt Helsingborg](#about-mitt-helsingborg)
   - [Built With](#built-with)
@@ -29,53 +31,54 @@
 - [Contributing](#contributing)
 - [License](#license)
 
-
 ## About Mitt Helsingborg
-
 
 ### Built With
 
-* [React](https://reactjs.org/)
-* [TypeScript](https://www.typescriptlang.org/)
-
+- [React](https://reactjs.org/)
+- [TypeScript](https://www.typescriptlang.org/)
 
 ## Getting Started
 
 To get a local copy up and running follow these simple steps.
-
 
 ### Prerequisites
 
 - [Node.js and NPM](https://nodejs.org/en/download/package-manager/)
 - Outlook desktop or web application
 
-
 ### Installation
 
 1. Clone the repo
+
 ```sh
 git clone git@github.com:helsingborg-stad/pane-outlook-mitt-helsingborg.git
 ```
+
 2. Install NPM packages
+
 ```sh
 npm install
 ```
-3. Make a copy of `helpers/constants.ts.EXAMPLE` and rename it to `helpers/constants.ts`.
 
-4. Update the backend base URL in the constants file and in `manifest.xml`'s `<AppDomains/>` tag.
+3. Make a copy of `.env.example` and rename it to `.env`.
+
+4. Update the backend base URL in the `.env`.
 
 5. Run the application
+
 ```sh
 npm start
 ```
+
 6. [Sideload the pane in outlook manually](https://docs.microsoft.com/en-us/office/dev/add-ins/outlook/sideload-outlook-add-ins-for-testing#sideload-manually)
 
-
-
 ## Deploy
+
 N/A
 
 ## Roadmap
+
 N/A
 
 ## Contributing
@@ -88,16 +91,13 @@ Any contributions you make are **greatly appreciated**.
 4. Push to the Branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request
 
-
 ## License
 
 Distributed under the [MIT License][license-url].
 
-
-
-
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
+
 [contributors-shield]: https://img.shields.io/github/contributors/helsingborg-stad/app-mitt-helsingborg.svg?style=flat-square
 [contributors-url]: https://github.com/helsingborg-stad/app-mitt-helsingborg/graphs/contributors
 [forks-shield]: https://img.shields.io/github/forks/helsingborg-stad/app-mitt-helsingborg.svg?style=flat-square

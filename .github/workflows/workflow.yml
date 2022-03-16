@@ -14,7 +14,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v1
       - name: Install and build
-        run: npm install && DOMAIN_URL=a BACKEND_BASE_URL=b npm run build
+        run: npm install && RESOURCES_URL=https://helsingborg-stad.github.io/pane-outlook-mitt-helsingborg/ BACKEND_BASE_URL=url npm run build
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@v4.2.5
         with:
