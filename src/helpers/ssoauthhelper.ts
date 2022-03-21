@@ -6,7 +6,6 @@
 /* global OfficeRuntime */
 import { dialogFallback } from "./fallbackauthhelper";
 import * as sso from "office-addin-sso";
-import { writeDataToOfficeDocument } from "./../taskpane/taskpane";
 let retryGetAccessToken = 0;
 
 export async function getGraphData(): Promise<void> {
@@ -30,8 +29,7 @@ export async function getGraphData(): Promise<void> {
     } else {
       // makeGraphApiCall makes an AJAX call to the MS Graph endpoint. Errors are caught
       // in the .fail callback of that call
-      const response: any = await sso.makeGraphApiCall(exchangeResponse.access_token);
-      writeDataToOfficeDocument(response);
+      // const response: any = await sso.makeGraphApiCall(exchangeResponse.access_token);
       sso.showMessage("Your data has been added to the document.");
     }
   } catch (exception) {
