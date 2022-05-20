@@ -63,21 +63,6 @@
                       <FunctionName>setAvailableAction</FunctionName>
                     </Action>
                   </Control>
-                  <Control xsi:type="Button" id="msgReadOpenPaneButton">
-                    <Label resid="TaskpaneButton.Label"/>
-                    <Supertip>
-                      <Title resid="TaskpaneButton.Label"/>
-                      <Description resid="TaskpaneButton.Tooltip"/>
-                    </Supertip>
-                    <Icon>
-                      <bt:Image size="16" resid="Icon.16x16"/>
-                      <bt:Image size="32" resid="Icon.32x32"/>
-                      <bt:Image size="80" resid="Icon.80x80"/>
-                    </Icon>
-                    <Action xsi:type="ShowTaskpane">
-                      <SourceLocation resid="Taskpane.Url"/>
-                    </Action>
-                  </Control>
                 </Group>
               </OfficeTab>
             </ExtensionPoint>
@@ -92,7 +77,6 @@
         </bt:Images>
         <bt:Urls>
           <bt:Url id="Commands.Url" DefaultValue="https://helsingborg-stad.github.io/pane-outlook-mitt-helsingborg/commands.html"/>
-          <bt:Url id="Taskpane.Url" DefaultValue="https://helsingborg-stad.github.io/pane-outlook-mitt-helsingborg/taskpane.html"/>
         </bt:Urls>
         <bt:ShortStrings>
           <bt:String id="GroupLabel" DefaultValue="Mitt Helsingborg Add-in"/>
@@ -100,23 +84,13 @@
           <bt:String id="BookMeetingButton.Label" DefaultValue="Boka möte"/>
           <bt:String id="GetStarted.Title" DefaultValue="Get started with your sample add-in!"/>
           <bt:String id="CommandsGroup.Label" DefaultValue="Commands Group"/>
-          <bt:String id="TaskpaneButton.Label" DefaultValue="Boka MH möte"/>
         </bt:ShortStrings>
         <bt:LongStrings>
           <bt:String id="SetAvailableButton.Tooltip" DefaultValue="Ange tillgängliga tider som användare att boka."/>
           <bt:String id="BookMeetingButton.Tooltip" DefaultValue="Boka ett möte med en invånare."/>
           <bt:String id="GetStarted.Description" DefaultValue="Your sample add-in loaded succesfully. Go to the HOME tab and click the 'Show Taskpane' button to get started."/>
-          <bt:String id="TaskpaneButton.Tooltip" DefaultValue="Boka möte för appen Mitt Helsingborg"/>
         </bt:LongStrings>
       </Resources>
-      <WebApplicationInfo>
-        <Id>d4c69634-f64f-4802-ad04-46f0b0a62c85</Id>
-        <Resource>api://localhost:3000/d4c69634-f64f-4802-ad04-46f0b0a62c85</Resource>
-        <Scopes>
-          <Scope>User.Read</Scope>
-          <Scope>profile</Scope>
-        </Scopes>
-      </WebApplicationInfo>
     </VersionOverrides>
   </VersionOverrides>
 </OfficeApp>
