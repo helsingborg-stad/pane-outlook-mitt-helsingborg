@@ -6,7 +6,6 @@
 /* global console, location, Office */
 
 import * as sso from "office-addin-sso";
-import { writeDataToOfficeDocument } from "./../taskpane/taskpane";
 var loginDialog;
 
 export function dialogFallback() {
@@ -24,8 +23,7 @@ async function processMessage(arg) {
   if (messageFromDialog.status === "success") {
     // We now have a valid access token.
     loginDialog.close();
-    const response = await sso.makeGraphApiCall(messageFromDialog.result);
-    writeDataToOfficeDocument(response);
+    //const response = await sso.makeGraphApiCall(messageFromDialog.result);
   } else {
     // Something went wrong with authentication or the authorization of the web application.
     loginDialog.close();
