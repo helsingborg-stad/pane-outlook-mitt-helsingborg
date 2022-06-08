@@ -65,13 +65,21 @@ npm install
 
 4. Update the backend base URL in the `.env`.
 
-5. Run the application
+5. Register the application with azure.
+
+```sh
+npm configure-sso
+```
+
+You should be prompted to sign in with your azure development account. Finally, it should add application secret for Mitt Helsingborg to your Keychain.
+
+6. Run the application
 
 ```sh
 npm start
 ```
 
-6. [Sideload the pane in outlook manually](https://docs.microsoft.com/en-us/office/dev/add-ins/outlook/sideload-outlook-add-ins-for-testing#sideload-manually)
+7. [Sideload the pane in outlook manually](https://docs.microsoft.com/en-us/office/dev/add-ins/outlook/sideload-outlook-add-ins-for-testing#sideload-manually)
 
 ## Deploy
 
