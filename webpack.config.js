@@ -65,7 +65,7 @@ module.exports = async (env, options) => {
     },
     plugins: [
       new webpack.DefinePlugin({
-        BASE_URL: JSON.stringify(process.env.BACKEND_BASE_URL),
+        API_URL: JSON.stringify(process.env.API_URL),
       }),
       new HtmlWebpackPlugin({
         filename: "taskpane.html",
